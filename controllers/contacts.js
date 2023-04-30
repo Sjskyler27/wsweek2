@@ -12,7 +12,7 @@ const get = async (req, res) => {
   const db = await database.connectDatabase();
   // const id = req.params.id;
   // const query = { _id: id};
-  const result = await db.collection('contacts').find({ _id: new ObjectId(req.params.id) });
+  const result = await db.collection('contacts').findOne({ _id: new ObjectId(req.params.id) });
   console.log(result);
   res.send(result);
 };
