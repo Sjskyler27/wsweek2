@@ -1,5 +1,5 @@
 const database = require('../db/connect.js');
-const { ObjectId } = require('mongodb'); // this helps with getting the id
+const ObjectId = require('mongodb').ObjectId; // this helps with getting the id
 
 const getAll = async (req, res) => {
   const db = await database.connectDatabase();
@@ -11,14 +11,14 @@ const getAll = async (req, res) => {
 const get = async (req, res) => {
   const db = await database.connectDatabase();
   const id = req.params.id;
-  const isValidId = /^[0-9a-fA-F]{24}$/.test(id); // check if id is a valid 24-character hex string
-  if (!isValidId) {
-    res.status(400).send('Invalid contact ID');
-    return;
-  }
-  else{
-    console.log('valid ID');
-  }
+  // const isValidId = /^[0-9a-fA-F]{24}$/.test(id); // check if id is a valid 24-character hex string
+  // if (!isValidId) {
+  //   res.status(400).send('Invalid contact ID');
+  //   return;
+  // }
+  // else{
+  //   console.log('valid ID');
+  // }
 
   // const query = { _id: id};
   //const result = await db.collection('contacts').findOne(query);
