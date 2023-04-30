@@ -1,5 +1,5 @@
 {
-  "name": "w1pract",
+  "name": "week1-1",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,7 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.22"
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.3.0"
   }
 }

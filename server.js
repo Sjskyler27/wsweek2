@@ -1,14 +1,10 @@
-const http = require('http');
+// express web server 
+const express = require('express'); // require is grabbing from node modules, it allows us to use express on this page
+const app = express(); // the object app now has the functionallity of express
 
-const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
+app.use('/', require('./routes/contacts'));
+const port = process.env.port || 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Skyler James Simpson');
-});
+app.listen(port);
+console.log('Web server at port: ' + port);
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
