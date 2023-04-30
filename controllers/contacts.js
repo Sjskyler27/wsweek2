@@ -10,9 +10,19 @@ const getAll = async (req, res) => {
 
 const get = async (req, res) => {
   const db = await database.connectDatabase();
-  // const id = req.params.id;
+  const id = req.params.id;
+  const isValidId = /^[0-9a-fA-F]{24}$/.test(id); // check if id is a valid 24-character hex string
+  if (!isValidId) {
+    res.status(400).send('Invalid contact ID');
+    return;
+  }
+  else{
+    console.log('valid ID');
+  }
+
   // const query = { _id: id};
-  const result = await db.collection('contacts').findOne({ _id: new ObjectId(req.params.id) });
+  //const result = await db.collection('contacts').findOne(query);
+  const result = await db.collection('contacts').findOne({ _id: new ObjectId(id) });
   console.log(result);
   res.send(result);
 };
